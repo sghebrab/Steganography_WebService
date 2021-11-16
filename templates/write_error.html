@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+    <script src="/static/scripts.js" rel="javascript"></script>
+    <title>File error</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 text-center" style="display: inline">
+            <h3>An error occurred</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <p>{{ error_msg }}</p>
+        </div>
+    </div>
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-4 text-center">
+            <a type="button" class="btn btn-primary" href="{{url_for('homepage')}}">Home</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <blockquote class="blockquote">
+                <footer class="blockquote-footer">developed by Sghebre</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+</body>
+</html>

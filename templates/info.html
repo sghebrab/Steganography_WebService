@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+    <script src="/static/scripts.js" rel="javascript"></script>
+    <title>Informations</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-4 text-center">
+            <h2>About this website...</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-4 text-center">
+            <a class="material-icons-outlined" href="{{url_for('homepage')}}">home</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <p style="overflow-wrap: break-word">
+                Steganography comes from the greek words "steganós", which means "covered", and "-graphia", which means
+                writing. The goal of steganography is to find objects where to hide critical messages.<br>
+                Pictures are a perfect example of objects where a message can be written without being easily noticed.<br>
+                This program takes a picture and a message and writes this message inside the image, using characters to
+                modify the intensity values of the picture's blue channel. The human eye is more sensitive to variations
+                in both the red and green channel, while it isn't that good ad noticing small differences in the blue one.
+                <br>
+                <br>
+                As an example, take the character "a". Its binary value (in UTF-8 encoding) is 01100001, which is exactly
+                8 bits (a byte). The program takes the first 8 pixels of the picture and, in particular, only the blue
+                channel. A blue pixel contains a binary number which is exactly 8 bits; let's say that this number is
+                01100111, which is 103 in base 10. Then, to hide the first binary digit of "a", which is 0, we substitute
+                the last 1 of the pixel's value with a 0; now, the pixel's value is 01100110, which is 102 in decimal.
+                Then, we take the next pixel, read its binary value and substitute the last digit with 1. Then
+                again with 1, then with 0 (four times) and, lastly, with a 1. By altering by a small amount the value of
+                each pixel (+/- 1), the program can easily write text characters inside an image.<br>
+                To read the message contained in a picture, the process is reversed. You basically load the last binary
+                digit of each blue pixel in the image, put them together and convert them to UTF-8 characters.
+                <br>
+            </p>
+            <p>
+                Github repository: <a href=""></a>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-4 text-center">
+            <a class="btn btn-primary" href="{{url_for('homepage')}}">Home</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <blockquote class="blockquote">
+                <footer class="blockquote-footer">developed by Sghebre</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+</body>
+</html>

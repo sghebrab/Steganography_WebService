@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-8 text-center">
+            <h3>Steganography.</h3>
+            <h5>... or "the art of hiding things"</h5>
+        </div>
+    </div>
+    <div class="row justify-content-center lil-jump-bottom">
+        <div class="col-12 col-md-8 text-center">
+            <a class="material-icons-outlined" href="{{url_for('info')}}">info</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            <nav>
+                <div class="nav nav-pills nav-fill lil-jump-bottom" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-hide-tab" data-toggle="tab" href="#nav-hide" role="tab"
+                       aria-controls="nav-hide" aria-selected="true">Hide</a>
+                    <a class="nav-item nav-link" id="nav-reveal-tab" data-toggle="tab" href="#nav-reveal" role="tab"
+                       aria-controls="nav-reveal" aria-selected="false">Reveal</a>
+                </div>
+            </nav>
+            <div class="tab-content lil-jump-bottom">
+                <div class="tab-pane fade show active" id="nav-hide" role="tabpanel" aria-labelledby="nav-hide-tab">
+                    <form method="post" action="/hide" enctype="multipart/form-data">
+                        <div class="form-group tab lil-jump-bottom">
+                            <label class="form-control-label" for="img-hide">Select picture: </label>
+                            <input class="form-control-label" type="file" id="img-hide" name="img-hide" accept="image/*">
+                        </div>
+                        <div class="form-group tab lil-jump-bottom">
+                            <label class="form-control-label" for="msg-hide">Type the message to hide: </label>
+                            <input class="form-control-label" type="text" id="msg-hide" name="msg-hide" placeholder="My secret message is...">
+                        </div>
+                        <div class="form-group tab lil-jump-bottom text-center">
+                            <button type="submit" class="btn btn-primary" id="btn-hide">
+                                <span class="material-icons-outlined">
+                                    lock
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade show" id="nav-reveal" role="tabpanel" aria-labelledby="nav-reveal-tab">
+                    <form method="post" action="/reveal" enctype="multipart/form-data">
+                        <div class="form-group tab lil-jump-bottom">
+                            <label class="form-control-label" for="img-reveal">Select picture: </label>
+                            <input class="form-control-label" type="file" id="img-reveal" name="img-reveal" accept="image/*">
+                        </div>
+                        <div class="form-group tab lil-jump-bottom text-center">
+                            <button type="submit" class="btn btn-primary" id="btn-reveal">
+                                <span class="material-icons-outlined">
+                                    lock_open
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <blockquote class="blockquote">
+                <footer class="blockquote-footer">developed by Sghebre</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+</body>
+</html>
