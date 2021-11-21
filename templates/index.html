@@ -47,12 +47,12 @@
                 <div class="tab-pane fade show active" id="nav-hide" role="tabpanel" aria-labelledby="nav-hide-tab">
                     <form method="post" action="/hide" enctype="multipart/form-data">
                         <div class="form-group tab lil-jump-bottom">
-                            <label class="form-control-label" for="img-hide">Select picture: </label>
-                            <input class="form-control-label" type="file" id="img-hide" name="img-hide" accept="image/*">
+                            <label for="img-hide">Choose picture: </label>
+                            <input class="form-control" type="file" id="img-hide" name="img-hide" accept="image/*">
                         </div>
-                        <div class="form-group tab lil-jump-bottom">
-                            <label class="form-control-label" for="msg-hide">Type the message to hide: </label>
-                            <input class="form-control-label" type="text" id="msg-hide" name="msg-hide" placeholder="My secret message is...">
+                        <div class="form-group lil-jump-bottom">
+                            <label for="msg-hide">Type the message to hide: </label>
+                            <textarea class="form-control focusable" id="msg-hide" name="msg-hide" rows="3" placeholder="I luv ya <3"></textarea>
                         </div>
                         <div class="form-group tab lil-jump-bottom text-center">
                             <button type="submit" class="btn btn-primary" id="btn-hide">

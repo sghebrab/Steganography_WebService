@@ -27,17 +27,22 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 text-center">
-            <h3>Message recovered</h3>
+            <h2>Message recovered</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4 col-md-2 text-center">
+            <a class="material-icons-outlined" href="{{url_for('homepage')}}">home</a>
         </div>
     </div>
     <div class="row justify-content-center lil-jump-bottom" style="overflow-wrap: break-word">
         <div class="col-12 col-md-8">
-            <h5>Data summary</h5>
             <div id="result">
-                <h5>Image with hidden message: </h5>
+                <h3>Image with hidden message: </h3>
                 <img class="responsive center" src="{{ image_path }}">
             </div>
-            <h6 style="margin-top:1.5em">Message unveiled: {{ message }}</h6>
+            <h3 style="margin-top:1.5em">Message unveiled</h3>
+            <p>{{ message }}</p>
         </div>
     </div>
     <div class="row justify-content-center lil-jump-bottom">
