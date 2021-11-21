@@ -80,11 +80,23 @@ def read_message_from_image(image):
     h, w = image[:, :, 2].shape
     blue_channel = image[:, :, 2]
     bits = list()
+    count = 0  # count is used to keep track of the number of bits read till now
     for i in range(h):
+        exit_loop = True  # Set this here so that the outer loop can read it at the end
         for j in range(w):
             pixel = blue_channel[i, j]
             to_bin = bin(pixel)[2:].zfill(8)
             bits.append(to_bin[7])
+            count += 1
+            if count % 8 == 0:  # if a number of full characters has been read...
+                exit_loop = True
+                for bit in bits[-8:]:  # check if the last one is 00000000 (termination character)
+                    if bit != "0":
+                        exit_loop = False
+                if exit_loop:  # if it's the case break the inner loop because the whole message has been read
+                    break
+        if count % 8 == 0 and exit_loop:  # if the last full character is the termination one, then break the outer loop too
+            break
     res_bytes = ''.join(bits)
     message = bytes_to_string(res_bytes)
     allowed_np_chars = ["\n"]  # put here escapes you want to be able to print
