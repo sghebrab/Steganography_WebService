@@ -1,0 +1,4 @@
+__pycache__/
+venv/
+steganography.pem
+steganography.key
