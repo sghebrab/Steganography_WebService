@@ -4,10 +4,7 @@ import steganography as stg
 from werkzeug.utils import secure_filename
 import os
 import glob
-try:
-    from cv2 import cv2
-except ImportError:
-    pass
+import cv2
 
 app = Flask(__name__)
 # Here I'll put the pictures that users upload
@@ -75,6 +72,3 @@ def reveal():
     return render_template("reveal.html", image_path=os.path.join(app.config['UPLOAD_FOLDER'], filename),
                            message=message_revealed)
 
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=42069, debug=True)
